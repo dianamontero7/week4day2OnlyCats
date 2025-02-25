@@ -9,9 +9,24 @@
                 <input id="ageInput" type="text" placeholder="How old are you?"/>
                 <button
                     onclick='
-                    //*** YOUR JAVASCRIPT CODE HERE ***
-                    //Grab the value from the input element above and determine if the user is old enough to visit this site.
-                    
+                   
+                   let ageInputHTML = document.getElementById("ageInput");
+
+                   let userAge = ageInputHTML.value;
+
+                   let userIsAdult = userAge >= 18; 
+                   let userIsTeenager = userAge <= 13;
+
+                   if (userIsTeenager) {
+                    window.location.href = "//pbskids.org/";
+                   } else if (userIsAdult) {
+                    document.getElementById("ageGateModal").style.display = "none";
+                   } else {
+                    let ageGateContentHTML = document.getElementById("ageGateContent");
+                    ageGateContentHTML.innerHTML = "<h1>You are too young to proceed. Please leave.</h1>";
+                   }
+
+                
 
                     '>Submit</button>
             </div>
